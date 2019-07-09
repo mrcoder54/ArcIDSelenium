@@ -13,7 +13,7 @@ namespace Tests
             var path = System.Environment.GetEnvironmentVariable("PATH");
             System.Environment.SetEnvironmentVariable("PATH", $"{path};{TestContext.CurrentContext.TestDirectory}");
 
-            main = new PortalMain("https://arcid.admin:Live$can1@10.36.62.179:9700");
+            main = new PortalMain("https://arcid.admin:Live$can1@reg2.fdorqa.com:9700");
         }
 
         [TearDown]
