@@ -8,9 +8,14 @@ namespace SeleniumDriver
     public class PortalMain
     {
         private ChromeDriver driver;
+        private string username;
+        private string password;
 
-        public PortalMain(string url)
+        public PortalMain(string url, string username, string password)
         {
+            this.username = username;
+            this.password = password;
+
             var option = new ChromeOptions();
             option.AddArguments("ignore-certificate-errors");
 
@@ -18,7 +23,11 @@ namespace SeleniumDriver
             driver.Navigate().GoToUrl(url);
         }
 
-        public bool Logon(string username, string password)
+        public ChromeDriver GetDriver()
+        {
+            return driver;
+        }
+        public bool Logon()
         {
             try
             {
@@ -35,15 +44,11 @@ namespace SeleniumDriver
 
                 wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("welcome-user")));
 
+                //TODO: Add logic to change password on first log on
                 return true;
             }
             catch { return false; }
            
-        }
-
-        public ChromeDriver Driver
-        {
-            get { return driver; }
         }
 
         public void Close()

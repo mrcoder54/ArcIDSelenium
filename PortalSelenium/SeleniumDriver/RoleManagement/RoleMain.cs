@@ -7,15 +7,24 @@ namespace SeleniumDriver.RoleManagement
 {
     public class RoleMain
     {
-        private ChromeDriver driver;
-        public RoleMain(ChromeDriver driver)
+        private PortalMain _main;
+        private ChromeDriver _driver;
+        public RoleMain(PortalMain main)
         {
-            this.driver = driver;
+            //main is passed in, in the instance that the application needs to be 
+            //logged back into again.
+            _main = main;
+            _driver = main.GetDriver();
         }
 
-        public void NavigateToRoleManagement(string url)
+        public void NavigateToRoleManagement()
         {
-            driver.Navigate().GoToUrl(url);
+            
+        }
+
+        public void ReLogin()
+        {
+            
         }
     }
 }

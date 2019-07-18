@@ -16,7 +16,7 @@ namespace Tests
             var path = System.Environment.GetEnvironmentVariable("PATH");
             System.Environment.SetEnvironmentVariable("PATH", $"{path};{executionPath}");
 
-            main = new PortalMain("https://reg1.fdorqa.com:9700");
+            main = new PortalMain("https://reg1.fdorqa.com:9700", "crossmatch", "livescan");
         }
 
         public void Dispose()
@@ -28,7 +28,7 @@ namespace Tests
         [Fact]
         public void LogonTest()
         {
-            var logonResult = main.Logon("crossmatch", "Live$can1");
+            var logonResult = main.Logon();
 
             Assert.True(logonResult);
         }
